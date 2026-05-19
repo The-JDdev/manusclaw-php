@@ -1,0 +1,20 @@
+# ManusClaw PHP - Apache Configuration
+# Prevent direct access to non-public directories
+
+# Block access to sensitive directories
+RewriteRule ^config/ - [F,L]
+RewriteRule ^app/ - [F,L]
+RewriteRule ^storage/ - [F,L]
+
+# Block access to hidden files (e.g., .env, .git)
+RewriteRule (^\.|/\.) - [F,L]
+
+# Block access to PHP files in non-public directories
+RewriteCond %{REQUEST_URI} !^/public/
+RewriteRule \.php$ - [F,L]
+
+# Route everything through public/index.php
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ public/index.php?url=$1 [QSA,L]

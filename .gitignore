@@ -1,0 +1,35 @@
+# ManusClaw PHP - Git Ignore
+
+# Storage & Database
+storage/*.db
+storage/*.db-wal
+storage/*.db-shm
+storage/sessions/*
+storage/uploads/*
+storage/logs/*
+!storage/.gitkeep
+
+# Config with sensitive data
+config/local.php
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Vendor (if composer is added later)
+vendor/
+
+# Node (if frontend tools are added later)
+node_modules/
+
+# Temp files
+*.tmp
+*.bak
+*.cache
